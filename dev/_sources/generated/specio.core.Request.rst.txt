@@ -9,6 +9,14 @@ specio\.core\.Request
    .. automethod:: __init__
 
    
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Request.__init__
+      ~Request.get_file
+      ~Request.get_local_filename
+   
    
 
    

@@ -9,6 +9,17 @@ specio\.core\.FormatManager
    .. automethod:: __init__
 
    
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~FormatManager.__init__
+      ~FormatManager.add_format
+      ~FormatManager.get_format_names
+      ~FormatManager.search_read_format
+      ~FormatManager.show
+      ~FormatManager.sort
+   
    
 
    

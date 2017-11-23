@@ -9,6 +9,14 @@ specio\.core\.Format
    .. automethod:: __init__
 
    
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Format.__init__
+      ~Format.can_read
+      ~Format.get_reader
+   
    
 
    

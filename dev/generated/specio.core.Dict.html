@@ -180,7 +180,7 @@
 <h1>specio.core.Dict<a class="headerlink" href="#specio-core-dict" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="specio.core.Dict">
-<em class="property">class </em><code class="descclassname">specio.core.</code><code class="descname">Dict</code><a class="reference internal" href="../_modules/specio/core/util.html#Dict"><span class="viewcode-link">[source]</span></a><a class="reference external" href="https://github.com/glemaitre/specio/blob/5d36957/specio/core/util.py#L14"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#specio.core.Dict" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">specio.core.</code><code class="descname">Dict</code><a class="reference internal" href="../_modules/specio/core/util.html#Dict"><span class="viewcode-link">[source]</span></a><a class="reference external" href="https://github.com/glemaitre/specio/blob/1cc14fb/specio/core/util.py#L14"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#specio.core.Dict" title="Permalink to this definition">¶</a></dt>
 <dd><p>A dict in which the keys can be get and set as if they were
 attributes. Very convenient in combination with autocompletion.</p>
 <p>This Dict still behaves as much as possible as a normal dict, and
@@ -189,10 +189,55 @@ keys that are not valid identifiers or that are names of the dict
 class (such as ‘items’ and ‘copy’) cannot be get/set as attributes.</p>
 <dl class="method">
 <dt id="specio.core.Dict.__init__">
-<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#specio.core.Dict.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>$self</em>, <em>/</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#specio.core.Dict.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
 </dd></dl>
 
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#specio.core.Dict.clear" title="specio.core.Dict.clear"><code class="xref py py-obj docutils literal"><span class="pre">clear</span></code></a>(()&nbsp;-&gt;&nbsp;None.&nbsp;&nbsp;Remove&nbsp;all&nbsp;items&nbsp;from&nbsp;od.)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#specio.core.Dict.copy" title="specio.core.Dict.copy"><code class="xref py py-obj docutils literal"><span class="pre">copy</span></code></a>(()&nbsp;-&gt;&nbsp;a&nbsp;shallow&nbsp;copy&nbsp;of&nbsp;od)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#specio.core.Dict.fromkeys" title="specio.core.Dict.fromkeys"><code class="xref py py-obj docutils literal"><span class="pre">fromkeys</span></code></a>((S[,&nbsp;…)</td>
+<td>If not specified, the value defaults to None.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#specio.core.Dict.get" title="specio.core.Dict.get"><code class="xref py py-obj docutils literal"><span class="pre">get</span></code></a>((k[,d])&nbsp;-&gt;&nbsp;D[k]&nbsp;if&nbsp;k&nbsp;in&nbsp;D,&nbsp;…)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">items</span></code></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">keys</span></code></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#specio.core.Dict.move_to_end" title="specio.core.Dict.move_to_end"><code class="xref py py-obj docutils literal"><span class="pre">move_to_end</span></code></a></td>
+<td>Move an existing element to the end (or beginning if last==False).</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#specio.core.Dict.pop" title="specio.core.Dict.pop"><code class="xref py py-obj docutils literal"><span class="pre">pop</span></code></a>((k[,d])&nbsp;-&gt;&nbsp;v,&nbsp;…)</td>
+<td>value.  If key is not found, d is returned if given, otherwise KeyError</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#specio.core.Dict.popitem" title="specio.core.Dict.popitem"><code class="xref py py-obj docutils literal"><span class="pre">popitem</span></code></a>($self,&nbsp;/[,&nbsp;last])</td>
+<td>Remove and return a (key, value) pair from the dictionary.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#specio.core.Dict.setdefault" title="specio.core.Dict.setdefault"><code class="xref py py-obj docutils literal"><span class="pre">setdefault</span></code></a>((k[,d])&nbsp;-&gt;&nbsp;od.get(k,d),&nbsp;…)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">update</span></code></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">values</span></code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <dl class="method">
 <dt id="specio.core.Dict.clear">
 <code class="descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; None.  Remove all items from od.<a class="headerlink" href="#specio.core.Dict.clear" title="Permalink to this definition">¶</a></dt>
@@ -231,8 +276,9 @@ is raised.</p>
 
 <dl class="method">
 <dt id="specio.core.Dict.popitem">
-<code class="descname">popitem</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; (k, v), return and remove a (key, value) pair.<a class="headerlink" href="#specio.core.Dict.popitem" title="Permalink to this definition">¶</a></dt>
-<dd><p>Pairs are returned in LIFO order if last is true or FIFO order if false.</p>
+<code class="descname">popitem</code><span class="sig-paren">(</span><em>$self</em>, <em>/</em>, <em>last=True</em><span class="sig-paren">)</span><a class="headerlink" href="#specio.core.Dict.popitem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove and return a (key, value) pair from the dictionary.</p>
+<p>Pairs are returned in LIFO order if last is true or FIFO order if false.</p>
 </dd></dl>
 
 <dl class="method">
@@ -298,7 +344,7 @@ is raised.</p>
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

@@ -180,7 +180,7 @@
 <h1>specio.core.FormatManager<a class="headerlink" href="#specio-core-formatmanager" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="specio.core.FormatManager">
-<em class="property">class </em><code class="descclassname">specio.core.</code><code class="descname">FormatManager</code><a class="reference internal" href="../_modules/specio/core/format.html#FormatManager"><span class="viewcode-link">[source]</span></a><a class="reference external" href="https://github.com/glemaitre/specio/blob/5d36957/specio/core/format.py#L426"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#specio.core.FormatManager" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">specio.core.</code><code class="descname">FormatManager</code><a class="reference internal" href="../_modules/specio/core/format.html#FormatManager"><span class="viewcode-link">[source]</span></a><a class="reference external" href="https://github.com/glemaitre/specio/blob/1cc14fb/specio/core/format.py#L426"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#specio.core.FormatManager" title="Permalink to this definition">¶</a></dt>
 <dd><p>Format manager containing all the registered formats.</p>
 <p>There is exactly one FormatManager object in specio: <code class="docutils literal"><span class="pre">specio.formats</span></code>.
 Its purpose it to keep track of the registered formats.</p>
@@ -189,12 +189,39 @@ format name or extension). When used as an iterator, this object yields all
 registered format objects.</p>
 <dl class="method">
 <dt id="specio.core.FormatManager.__init__">
-<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/specio/core/format.html#FormatManager.__init__"><span class="viewcode-link">[source]</span></a><a class="reference external" href="https://github.com/glemaitre/specio/blob/5d36957/specio/core/format.py#L437"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#specio.core.FormatManager.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/specio/core/format.html#FormatManager.__init__"><span class="viewcode-link">[source]</span></a><a class="reference external" href="https://github.com/glemaitre/specio/blob/1cc14fb/specio/core/format.py#L437"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#specio.core.FormatManager.__init__" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#specio.core.FormatManager.__init__" title="specio.core.FormatManager.__init__"><code class="xref py py-obj docutils literal"><span class="pre">__init__</span></code></a>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#specio.core.FormatManager.add_format" title="specio.core.FormatManager.add_format"><code class="xref py py-obj docutils literal"><span class="pre">add_format</span></code></a>(format[,&nbsp;overwrite])</td>
+<td>Register a given format.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#specio.core.FormatManager.get_format_names" title="specio.core.FormatManager.get_format_names"><code class="xref py py-obj docutils literal"><span class="pre">get_format_names</span></code></a>()</td>
+<td>Get the names of all registered formats.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#specio.core.FormatManager.search_read_format" title="specio.core.FormatManager.search_read_format"><code class="xref py py-obj docutils literal"><span class="pre">search_read_format</span></code></a>(request)</td>
+<td>Search a specific format.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#specio.core.FormatManager.show" title="specio.core.FormatManager.show"><code class="xref py py-obj docutils literal"><span class="pre">show</span></code></a>()</td>
+<td>Show a nicely formatted list of available formats.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#specio.core.FormatManager.sort" title="specio.core.FormatManager.sort"><code class="xref py py-obj docutils literal"><span class="pre">sort</span></code></a>(*names)</td>
+<td>Sort the registered format.</td>
+</tr>
+</tbody>
+</table>
 <dl class="method">
 <dt id="specio.core.FormatManager.add_format">
-<code class="descname">add_format</code><span class="sig-paren">(</span><em>format</em>, <em>overwrite=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/specio/core/format.html#FormatManager.add_format"><span class="viewcode-link">[source]</span></a><a class="reference external" href="https://github.com/glemaitre/specio/blob/5d36957/specio/core/format.py#L536"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#specio.core.FormatManager.add_format" title="Permalink to this definition">¶</a></dt>
+<code class="descname">add_format</code><span class="sig-paren">(</span><em>format</em>, <em>overwrite=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/specio/core/format.html#FormatManager.add_format"><span class="viewcode-link">[source]</span></a><a class="reference external" href="https://github.com/glemaitre/specio/blob/1cc14fb/specio/core/format.py#L536"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#specio.core.FormatManager.add_format" title="Permalink to this definition">¶</a></dt>
 <dd><p>Register a given format.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -220,13 +247,13 @@ it will replace it.</p>
 
 <dl class="method">
 <dt id="specio.core.FormatManager.get_format_names">
-<code class="descname">get_format_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/specio/core/format.html#FormatManager.get_format_names"><span class="viewcode-link">[source]</span></a><a class="reference external" href="https://github.com/glemaitre/specio/blob/5d36957/specio/core/format.py#L606"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#specio.core.FormatManager.get_format_names" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_format_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/specio/core/format.html#FormatManager.get_format_names"><span class="viewcode-link">[source]</span></a><a class="reference external" href="https://github.com/glemaitre/specio/blob/1cc14fb/specio/core/format.py#L606"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#specio.core.FormatManager.get_format_names" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the names of all registered formats.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="specio.core.FormatManager.search_read_format">
-<code class="descname">search_read_format</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/specio/core/format.html#FormatManager.search_read_format"><span class="viewcode-link">[source]</span></a><a class="reference external" href="https://github.com/glemaitre/specio/blob/5d36957/specio/core/format.py#L569"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#specio.core.FormatManager.search_read_format" title="Permalink to this definition">¶</a></dt>
+<code class="descname">search_read_format</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/specio/core/format.html#FormatManager.search_read_format"><span class="viewcode-link">[source]</span></a><a class="reference external" href="https://github.com/glemaitre/specio/blob/1cc14fb/specio/core/format.py#L569"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#specio.core.FormatManager.search_read_format" title="Permalink to this definition">¶</a></dt>
 <dd><p>Search a specific format.</p>
 <p>Search a format that can read a file according to the given request.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -252,13 +279,13 @@ format was found.</p>
 
 <dl class="method">
 <dt id="specio.core.FormatManager.show">
-<code class="descname">show</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/specio/core/format.html#FormatManager.show"><span class="viewcode-link">[source]</span></a><a class="reference external" href="https://github.com/glemaitre/specio/blob/5d36957/specio/core/format.py#L610"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#specio.core.FormatManager.show" title="Permalink to this definition">¶</a></dt>
+<code class="descname">show</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/specio/core/format.html#FormatManager.show"><span class="viewcode-link">[source]</span></a><a class="reference external" href="https://github.com/glemaitre/specio/blob/1cc14fb/specio/core/format.py#L610"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#specio.core.FormatManager.show" title="Permalink to this definition">¶</a></dt>
 <dd><p>Show a nicely formatted list of available formats.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="specio.core.FormatManager.sort">
-<code class="descname">sort</code><span class="sig-paren">(</span><em>*names</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/specio/core/format.html#FormatManager.sort"><span class="viewcode-link">[source]</span></a><a class="reference external" href="https://github.com/glemaitre/specio/blob/5d36957/specio/core/format.py#L500"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#specio.core.FormatManager.sort" title="Permalink to this definition">¶</a></dt>
+<code class="descname">sort</code><span class="sig-paren">(</span><em>*names</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/specio/core/format.html#FormatManager.sort"><span class="viewcode-link">[source]</span></a><a class="reference external" href="https://github.com/glemaitre/specio/blob/1cc14fb/specio/core/format.py#L500"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#specio.core.FormatManager.sort" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sort the registered format.</p>
 <p>Sort the formats based on zero or more given names; a format with a
 name that matches one of the given names will take precedence over
@@ -341,7 +368,7 @@ that makes use of specio.</p>
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
