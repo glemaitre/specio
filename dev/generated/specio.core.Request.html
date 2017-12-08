@@ -180,7 +180,7 @@
 <h1>specio.core.Request<a class="headerlink" href="#specio-core-request" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="specio.core.Request">
-<em class="property">class </em><code class="descclassname">specio.core.</code><code class="descname">Request</code><span class="sig-paren">(</span><em>uri</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/specio/core/request.html#Request"><span class="viewcode-link">[source]</span></a><a class="reference external" href="https://github.com/paris-saclay-cds/specio/blob/388ee78/specio/core/request.py#L15"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#specio.core.Request" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">specio.core.</code><code class="descname">Request</code><span class="sig-paren">(</span><em>uri</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/specio/core/request.html#Request"><span class="viewcode-link">[source]</span></a><a class="reference external" href="https://github.com/paris-saclay-cds/specio/blob/eb684b6/specio/core/request.py#L15"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#specio.core.Request" title="Permalink to this definition">¶</a></dt>
 <dd><p>Interface between a plugin and the spectra resource.</p>
 <p>Represents a request for reading an spectra resource. This object wraps
 information to that request and acts as an interface for the plugins to
@@ -209,7 +209,7 @@ between a format and associated reader.</p>
 </table>
 <dl class="method">
 <dt id="specio.core.Request.__init__">
-<code class="descname">__init__</code><span class="sig-paren">(</span><em>uri</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/specio/core/request.html#Request.__init__"><span class="viewcode-link">[source]</span></a><a class="reference external" href="https://github.com/paris-saclay-cds/specio/blob/388ee78/specio/core/request.py#L44"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#specio.core.Request.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>uri</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/specio/core/request.html#Request.__init__"><span class="viewcode-link">[source]</span></a><a class="reference external" href="https://github.com/paris-saclay-cds/specio/blob/eb684b6/specio/core/request.py#L44"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#specio.core.Request.__init__" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p class="rubric">Methods</p>
@@ -245,7 +245,7 @@ header to determine the file-format.</p>
 
 <dl class="method">
 <dt id="specio.core.Request.get_file">
-<code class="descname">get_file</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/specio/core/request.html#Request.get_file"><span class="viewcode-link">[source]</span></a><a class="reference external" href="https://github.com/paris-saclay-cds/specio/blob/388ee78/specio/core/request.py#L131"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#specio.core.Request.get_file" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_file</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/specio/core/request.html#Request.get_file"><span class="viewcode-link">[source]</span></a><a class="reference external" href="https://github.com/paris-saclay-cds/specio/blob/eb684b6/specio/core/request.py#L131"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#specio.core.Request.get_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get a file object for the resource.</p>
 <p>Get a file object for the resource associated with this request.
 This method is not thread safe. Plugins do not need to close the file
@@ -271,7 +271,7 @@ handle file-like objects, they should use <code class="docutils literal"><span c
 
 <dl class="method">
 <dt id="specio.core.Request.get_local_filename">
-<code class="descname">get_local_filename</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/specio/core/request.html#Request.get_local_filename"><span class="viewcode-link">[source]</span></a><a class="reference external" href="https://github.com/paris-saclay-cds/specio/blob/388ee78/specio/core/request.py#L162"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#specio.core.Request.get_local_filename" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_local_filename</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/specio/core/request.html#Request.get_local_filename"><span class="viewcode-link">[source]</span></a><a class="reference external" href="https://github.com/paris-saclay-cds/specio/blob/eb684b6/specio/core/request.py#L162"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#specio.core.Request.get_local_filename" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the filename of the resource.</p>
 <p>If the filename is an existing file on this filesystem, return
 that.</p>
