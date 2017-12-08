@@ -51,7 +51,7 @@ This example shows how to read FSM file and plot the results.
              spectra.spectrum[0])
     plt.show()
 
-**Total running time of the script:** ( 0 minutes  0.183 seconds)
+**Total running time of the script:** ( 0 minutes  0.184 seconds)
 
 
 
