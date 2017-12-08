@@ -335,7 +335,8 @@ is None, it should return the ‘global’ meta-data.</li>
 102
 103
 104
-105</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Example plugin. You can use this as a template for your own plugin.&quot;&quot;&quot;</span>
+105
+106</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Example plugin. You can use this as a template for your own plugin.&quot;&quot;&quot;</span>
 
 <span class="c1"># Copyright (c) 2017</span>
 <span class="c1"># Authors: Guillaume Lemaitre &lt;guillaume.lemaitre@inria.fr&gt;</span>
@@ -347,6 +348,7 @@ is None, it should return the ‘global’ meta-data.</li>
 
 <span class="kn">from</span> <span class="nn">..</span> <span class="kn">import</span> <span class="n">formats</span>
 <span class="kn">from</span> <span class="nn">..core</span> <span class="kn">import</span> <span class="n">Format</span>
+<span class="kn">from</span> <span class="nn">..core</span> <span class="kn">import</span> <span class="n">Spectrum</span>
 
 
 <span class="k">class</span> <span class="nc">DummyFormat</span><span class="p">(</span><span class="n">Format</span><span class="p">):</span>
@@ -426,7 +428,7 @@ is None, it should return the ‘global’ meta-data.</li>
             <span class="n">spec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">frombuffer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">,</span> <span class="s1">&#39;uint8&#39;</span><span class="p">)</span>
             <span class="n">spec</span> <span class="o">=</span> <span class="n">spec</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,</span> <span class="p">:]</span>
             <span class="c1"># Return array and dummy meta data</span>
-            <span class="k">return</span> <span class="n">spec</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">spec</span><span class="p">),</span> <span class="p">{}</span>
+            <span class="k">return</span> <span class="n">Spectrum</span><span class="p">(</span><span class="n">spec</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">spec</span><span class="p">),</span> <span class="p">{})</span>
 
         <span class="k">def</span> <span class="nf">_get_meta_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
             <span class="c1"># Get the meta data for the given index. If index is None, it</span>

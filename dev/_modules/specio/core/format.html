@@ -384,8 +384,7 @@
 <span class="sd">            &quot;&quot;&quot;</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_checkClosed</span><span class="p">()</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_BaseReader_last_index</span> <span class="o">=</span> <span class="n">index</span>
-            <span class="n">spectrum</span><span class="p">,</span> <span class="n">wavelength</span><span class="p">,</span> <span class="n">meta</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_data</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-            <span class="k">return</span> <span class="n">Spectrum</span><span class="p">(</span><span class="n">spectrum</span><span class="p">,</span> <span class="n">wavelength</span><span class="p">,</span> <span class="n">meta</span><span class="p">)</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_data</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
         <span class="k">def</span> <span class="nf">get_next_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
             <span class="sd">&quot;&quot;&quot;Read the next spectra from the series.</span>
@@ -455,14 +454,14 @@
             <span class="n">i</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_length</span><span class="p">()</span>
             <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
                 <span class="k">try</span><span class="p">:</span>
-                    <span class="n">spectrum</span><span class="p">,</span> <span class="n">wavelength</span><span class="p">,</span> <span class="n">meta</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_data</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+                    <span class="n">spectra</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_data</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
                 <span class="k">except</span> <span class="p">(</span><span class="ne">IndexError</span><span class="p">,</span> <span class="n">CannotReadSpectraError</span><span class="p">):</span>
                     <span class="k">if</span> <span class="n">n</span> <span class="o">-</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
                         <span class="n">uri</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">filename</span>
                         <span class="n">warn</span><span class="p">(</span><span class="s1">&#39;Could not read last frame of </span><span class="si">%s</span><span class="s1">.&#39;</span> <span class="o">%</span> <span class="n">uri</span><span class="p">)</span>
                         <span class="k">return</span>
                     <span class="k">raise</span>
-                <span class="k">yield</span> <span class="n">Spectrum</span><span class="p">(</span><span class="n">spectrum</span><span class="p">,</span> <span class="n">wavelength</span><span class="p">,</span> <span class="n">meta</span><span class="p">)</span>
+                <span class="k">yield</span> <span class="n">spectra</span>
                 <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
 
         <span class="c1"># Compatibility</span>
@@ -553,26 +552,23 @@
             <span class="sd">&quot;&quot;&quot;Plugins can overwrite this, but may raise an IndexError in</span>
 <span class="sd">            case the plugin does not support random access.</span>
 
-<span class="sd">            It should return the spectra and meta data: (ndarray, dict).</span>
+<span class="sd">            It should return a Spectrum instance or a list of Spectrum</span>
+<span class="sd">            instances.</span>
 
 <span class="sd">            &quot;&quot;&quot;</span>
-            <span class="k">if</span> <span class="n">index</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-                <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="o">.</span><span class="n">spectrum</span><span class="p">,</span>
-                        <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="o">.</span><span class="n">wavelength</span><span class="p">,</span>
-                        <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="o">.</span><span class="n">meta</span><span class="p">)</span>
-            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="o">.</span><span class="n">spectrum</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
-                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="o">.</span><span class="n">wavelength</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-                    <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="o">.</span><span class="n">spectrum</span><span class="p">[</span><span class="n">index</span><span class="p">,</span> <span class="p">:],</span>
-                            <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="o">.</span><span class="n">wavelength</span><span class="p">,</span>
-                            <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="o">.</span><span class="n">meta</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">,</span> <span class="n">Spectrum</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">index</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="o">.</span><span class="n">spectrum</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">Spectrum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="o">.</span><span class="n">spectrum</span><span class="p">[</span><span class="n">index</span><span class="p">],</span>
+                                    <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="o">.</span><span class="n">wavelength</span><span class="p">,</span>
+                                    <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="o">.</span><span class="n">meta</span><span class="p">)</span>
                 <span class="k">else</span><span class="p">:</span>
-                    <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="o">.</span><span class="n">spectrum</span><span class="p">[</span><span class="n">index</span><span class="p">,</span> <span class="p">:],</span>
-                            <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="o">.</span><span class="n">wavelength</span><span class="p">[</span><span class="n">index</span><span class="p">,</span> <span class="p">:],</span>
-                            <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="o">.</span><span class="n">meta</span><span class="p">)</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="o">.</span><span class="n">spectrum</span><span class="p">[</span><span class="n">index</span><span class="p">],</span>
-                        <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="o">.</span><span class="n">wavelength</span><span class="p">[</span><span class="n">index</span><span class="p">],</span>
-                        <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="o">.</span><span class="n">meta</span><span class="p">)</span>
+                    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span>
+
+            <span class="k">else</span><span class="p">:</span>  <span class="c1"># list of Spectrum</span>
+                <span class="k">if</span> <span class="n">index</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
 
         <span class="k">def</span> <span class="nf">_get_meta_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
             <span class="sd">&quot;&quot;&quot;Plugins must implement this.</span>

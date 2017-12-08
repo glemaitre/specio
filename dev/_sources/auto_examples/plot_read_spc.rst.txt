@@ -54,7 +54,7 @@ This example shows how to read SPC file and plot the results.
     plt.ylabel(spectra.meta['ylabel'])
     plt.show()
 
-**Total running time of the script:** ( 0 minutes  0.040 seconds)
+**Total running time of the script:** ( 0 minutes  0.041 seconds)
 
 
 
